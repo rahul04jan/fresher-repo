@@ -1,46 +1,62 @@
-<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Calculator</title>
-	</head>
-	<style type="text/css">
- 		td {
- 			padding: 10px;
- 			background-color: gray;
- 		}
+<head>
+	<style>
+	.title{
+	text-align:center;
+	border:solid black 2px;
+	width:210px;
+	color:black;
+	
+	}
+	input[type="text"]
+	{
+	background-color:white;
+	border:solid black 2px;
+	width:100%;
+	}
+	input[type="button"]
+	{
+	background-color:gray;
+	color=black;
+	width:100%;
+	}
 	</style>
-	<body>
-		<div>
-			<div>Your Input</div>
+	
+</head>
+<body>
+<div class = title >Calculator</div> 
+	<table border="1"> 
+		<tr> 
+			<td colspan="3"><input type="text" id="result"/></td> 
+			
+			<td><input type="button" value="clr"/> </td> 
+		</tr> 
+		<tr> 
+			
+			<td><input type="button" value="1" > </td> 
+			<td><input type="button" value="2" ></td> 
+			<td><input type="button" value="3" ></td> 
+			<td><input type="button" value="/" > </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="4"> </td> 
+			<td><input type="button" value="5" /> </td> 
+			<td><input type="button" value="6" /> </td> 
+			<td><input type="button" value="-" /> </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="7"/> </td> 
+			<td><input type="button" value="8"/> </td> 
+			<td><input type="button" value="9"/> </td> 
+			<td><input type="button" value="+" /> </td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="."/> </td> 
+			<td><input type="button" value="0"/> </td> 
 
-		</div>
-		<table>
-			<tr></tr>
-			<tr><td>^</td>
-				<td>%</td>
-				<td>/</td>
-				<td>*</td>
-			</tr>
-			<tr><td>7</td>
-				<td>8</td>
-				<td>9</td>
-				<td>-</td>
-			</tr>
-			<tr><td>4</td>
-				<td>5</td>
-				<td>6</td>
-				<td>+</td>
-			</tr>
-			<tr><td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td rowspan=2>=</td>
-			</tr>
-			<tr><td colspan="2">0</td>
-				<td>.</td>
-				
-			
-			
-		</table>
-	</body>
+			<td><input type="button" value="=" /> </td> 
+			<td><input type="button" value="*" /> </td> 
+		</tr> 
+	</table> 
+</body>
 </html>
