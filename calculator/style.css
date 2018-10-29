@@ -1,11 +1,7 @@
-body{
-	background: #EEEEEE;
-	}
-	div.title{
-	border:solid black 2px;
-	width:25%;
-	color: #CFD8DC;
-	font-size:30px;
+
+body{     background: #EEEEEE;     width: 60vw;     }   
+  div.title{
+	width:25%;     color: #CFD8DC;     font-size:30px;
 
 	}
 	div.text{
@@ -14,31 +10,39 @@ body{
 	padding:10px;
 	margin-top:5px;
 	height:40px;
+	text-align: right;
+	font-size: 40px;
 	}
 
 	.otr{
-	width: 320px;
-  margin: 0 auto;
-  margin-top:5%;
-  border-radius: 20px;
-	width:25%;
- background-color: #263238;
+
 	
-	}
+	border-radius: 20px;
+ background-color: #263238;
+ font-family: 'Orbitron', sans-serif;
+ margin: 0 auto;
+position: absolute;
+top: 50%;
+left:50%;
+width:18em;
+
+transform:translate(-50%,-50%);
+}
+
 	.table{
 	width:100%;
+	border-radius: 20px;
 	}
 	body{
 	height:100%;
 	}
 	td{
 	background-color:#637a74;
-	color=black;
 	text-align:center;
 	padding: 16px;
 	color: white;
 	font-weight: bolder;
-  font-size: 20px;
+    font-size: 20px;
     cursor: pointer;
 	border-radius:10px;
 	-webkit-box-shadow: -9px 22px 52px 5px rgba(0,0,0,0.83);
@@ -55,4 +59,12 @@ background-color:#A6CCC2;
 }
 td#clr:hover{
 background-color:#85103E;
+}
+
+@media (max-width:480px) {
+.otr{
+/* width:100%; 
+width:70%;*/
+padding: 7px;
+border-radius: 20px;
 }

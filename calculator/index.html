@@ -1,46 +1,48 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="calci.js"></script>
 
 </head>
 <body>
 <div class="otr">
 <div class = title >CALCULATOR</div> 
-<div class="text"></div>
+<div class="text" id="res"></div>
 	<table class="table" cellspacing="12" border="1"> 
 		
 		<tr>
-		<td class="op">/</td>
-		<td class="op">*</td>
-		<td class="op">-</td>
-		<td class="op">+</td>
+		<td class="op" onclick="dis('/')">/</td>
+		<td class="op" onclick="dis('*')">*</td>
+		<td class="op" onclick="dis('-')">-</td>
+		<td class="op" onclick="dis('+')">+</td>
 		</tr>
 		
 		<tr> 
 			
-			<td class="number">7</td>
-			<td class="number">8</td>
-			<td class="number">9</td>
-			<td  id="clr" rowspan="2">Clr</td>
+			<td class="number" onclick="dis('7')">7</td>
+			<td class="number" onclick="dis('8')">8</td>
+			<td class="number" onclick="dis('9')">9</td>
+			<td  id="clr" rowspan="2" onclick="clear_me();">Clr</td>
 		</tr> 
 		<tr> 
-		<td class="number">4</td>
-		<td class="number">5</td>
-		<td class="number">6</td>
+		<td class="number" onclick="dis('4')">4</td>
+		<td class="number" onclick="dis('5')">5</td>
+		<td class="number" onclick="dis('6')">6</td>
 		
 		</tr> 
 		<tr> 
-			<td class="number">1</td> 
-			<td class="number">2</td> 
-			<td class="number">3</td>
-			<td rowspan="2">=</td> 
+			<td class="number" onclick="dis('1')">1</td> 
+			<td class="number" onclick="dis('2')">2</td> 
+			<td class="number" onclick="dis('3')">3</td>
+			<td rowspan="2" onclick="calc()">=</td> 
 			
 		</tr> 
 		<tr> 
 			
-			<td colspan="2" class="number">0</td> 
-			<td >.</td> 
+			<td colspan="2" class="number" onclick="dis('0')">0</td> 
+			<td onclick="dis('.')">.</td> 
 		</tr> 
 	</table> 
 	</div>
