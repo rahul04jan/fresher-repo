@@ -7,7 +7,15 @@ function clear_me()
 }
 
 function dis(val){
-			document.getElementById("res").innerHTML+=val ;
+
+if ((document.getElementById("res").innerHTML).length<=8){
+document.getElementById("res").innerHTML+=val ;  
+}
+else
+{
+ //document.getElementById("res").innerHTML="E"; 
+ alert("Limit Exceeded");
+}
 }
 function calc()
 {
