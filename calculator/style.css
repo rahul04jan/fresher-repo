@@ -55,11 +55,15 @@ box-shadow: -9px 22px 52px 5px rgba(0,0,0,0.83);
 td#clr{
 background-color: #C2185B;
 }
+td#clr1{
+background-color: #C2185B;
+}
 
 td:hover
 {
 background-color:#A6CCC2;
 }
+
 td:active
 {
 	background-color:#4A907E;
@@ -82,7 +86,14 @@ box-shadow: -9px 22px 52px 5px rgba(0,0,0,0.83);
 {
 background-color:#42081F;
 }
-
+#clr1:hover
+{
+	background-color: #CC5785;
+}
+#clr1:active
+{
+background-color:#42081F;
+}
 @media (max-width:480px) {
 .otr{
 /* width:100%; 

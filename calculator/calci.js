@@ -7,6 +7,7 @@ function clear_me()
 }
 
 function dis(val){
+  
 
 if ((document.getElementById("res").innerHTML).length<=8){
 document.getElementById("res").innerHTML+=val ;  
@@ -82,4 +83,8 @@ else{
 
 
 		document.getElementById("res").innerHTML = arr1;
+}
+function clr1(){
+  var clr_r= document.getElementById("res").innerHTML;
+  document.getElementById("res").innerHTML=clr_r.substring(0,clr_r.length -1);
 }
