@@ -1,6 +1,6 @@
 var j=1;
 var m=1;
-var n=1;
+var n=1,flg=0;
 var input;
 window.onload=function f1(){
 	input = document.getElementById("text");
@@ -58,18 +58,28 @@ var span1=document.createElement("SPAN");
 
  document.getElementById("text").value=""; 
  document.getElementById("text").focus();
+ flg=0;
 
 }
 }
 	function edit(val2){
 		
+		if (flg==1)
+		{
+		alert("Can edit only one task at a time ");
+		document.getElementById("text").focus();
+		}else
+		{
+			flg=1;
 		var vlk2="li"+val2;
 		var rt=document.getElementById(vlk2).childNodes.item(vlk2).nodeValue;
 		document.getElementById("text").value=rt;
 		document.getElementById("text").focus();
 		delete1(val2);
-
+		
 	}
+	
+}
 
 	function delete1(val1)
 	{
