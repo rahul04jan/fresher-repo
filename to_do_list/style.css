@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
+body{
+background-image: url("background-image.jpg");
+width: auto;
+background-size:100%;
+background-position: center;
+height: 100%;
+padding: 20% 0;
+position: relative;
+top: 0;
+}
+.text-box{
+width: 80%;
+margin: 0 auto; 
+background:rgba(192,172,172,0.16);
+padding:1%;
+position: absolute;;
+top: 0;
+left:50%;
+transform: translateX(-50%);
+}
+.text-box h2{
+color: white;
+text-align: center;
+text-transform:capitalize;
+padding-bottom: 20px;
+letter-spacing:3px;
+font-size: 35px;
+font-weight:700;
+font-family: 'Baloo Bhaijaan', cursive;
+}
+.todo{
+display: inline-block;
+width: 100%;
+}
+.main{
+ margin:0 auto;
+ width: 90%;
+}
+.todo input{
+display: inline;
+width:75%;
+height:40px;
+border:0;
+
+transition: all 0.5s ease;
+}
+.todo input::placeholder{
+	padding: 20px;
+}
+.todo input:focus{
+outline: none;
+border-bottom:2px solid black;
+}
+.todo button p{
+	margin:0;
+	color: black;
+}
+.todo button{
+display: inline;
+width: 20%;
+padding:1.2% 0;
+background:#d5d5d5d9;
+border: 0;
+margin-left: -5px;
+cursor: pointer;
+
+font-family: 'Baloo Bhaijaan', cursive;
+position: relative;
+top:0;
+}
+.todo button:hover p{
+	color: white;
+	position: relative;
+	z-index: 9999;
+}
+.todo button::before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: black;
+    z-index: 1;
+    height:0%;
+    left: 0;
+    transition: height 1s;
+    
+}
+.todo button:hover::before{
+height: 100%;
+}
+.result-box{
+width: 80%;
+margin: 0 auto; 	
+}
+#result{
+list-style: none;
+padding: 0;
+}
+#result li{
+background:#eee;
+color: black;
+margin-bottom: 0px;
+margin-bottom: 10px;
+font-size: 24px;
+padding: 1%;
+transition: all 1s ease;
+font-family: 'Rajdhani', sans-serif;
+}
+#result li:nth-child(odd)
+{
+background:#BBBBBB;
+color: black;
+margin-bottom: 10px;
+color: white;
+font-size: 24px;
+padding: 1%;
+transition: all 1s ease;
+font-family: 'Rajdhani', sans-serif;
+}
+#result li:hover{
+background: #ddd;
+cursor: pointer;
+}
+.checked{
+background: #888;
+color: #fff;
+text-decoration: line-through;
+}
+.dt{
+font-size: 12px;
+padding: 4px;
+background-position:center;
+background-repeat:no-repeat;
+}
+.et{
+
+font-size: 12px;
+padding: 4px
+background-position:center;
+background-repeat:no-repeat;	
+}
+.close{
+float: right;
+cursor:pointer;
+}
+.dt{
+	padding:10px 20px;
+	border:1px solid #F70F1D;
+	margin: -20px 40px;
+	background:#F70F1D;
+	color: white;
+	text-transform: uppercase;
+	font-size:20px;
+	position: relative;
+    font-family: FontAwesome;
+    transition: all 1s ease; 
+ }
+ .dt:hover{
+	background: white;
+	color:#F70F1D;
+	border:1px solid #F70F1D;
+	border-radius:10px;
+ }
+ .et{
+	padding:10px 20px;
+	border:1px solid #7292DD;
+	margin: -17px 0px;
+	background:#7292DD;;
+	color: white;
+	text-transform: uppercase;
+	font-size:20px;
+	position: relative;
+    font-family: FontAwesome;
+    transition: all 1s ease; 
+ }
+.et:hover{
+	background: white;
+	color:#7292DD;
+	border:1px solid #7292DD;
+	border-radius: 10px;
+ }

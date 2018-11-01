@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>TO DO LIST</title>
+
+</head>
+<body>
+	<div class="text-box">
+        <h2>My To Do List</h2>
+        <div class="main">
+		<div class="todo">
+			<input type="text" id="text"/ placeholder="Enter Your Task">
+			<button id="mybtn" onclick="add()"><p>Add Task</p></button>
+		</div>
+	</div>
+	</div>
+ <div class="result-box">   
+ <ul id="result"></ul>
+ </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script type="text/javascript">
+// Checked class added
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+ </script>
+</body>
+</html>
