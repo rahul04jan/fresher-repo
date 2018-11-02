@@ -48,7 +48,7 @@ function calc()
 else{
  if (arr1.includes('/')){
    var ct=arr1.indexOf('/');
-   var ct1=parseInt(arr1[ct-1])/parseInt(arr1[ct+1]);
+   var ct1=parseFloat(arr1[ct-1])/parseFloat(arr1[ct+1]);
   arr1.splice(ct-1,3);
    arr1.splice(ct-1,0,ct1);
   solve();
@@ -57,7 +57,7 @@ else{
 
    else if (arr1.includes('*')){
    var ct=arr1.indexOf('*');
-   var ct1=parseInt(arr1[ct-1])*parseInt(arr1[ct+1]);
+   var ct1=parseFloat(arr1[ct-1])*parseFloat(arr1[ct+1]);
    arr1.splice(ct-1,3);
    arr1.splice(ct-1,0,ct1);
    solve();
@@ -65,7 +65,7 @@ else{
 
    else if (arr1.includes('+')){
    var ct=arr1.indexOf('+');
-   var ct1=parseInt(arr1[ct-1])+parseInt(arr1[ct+1]);
+   var ct1=parseFloat(arr1[ct-1])+parseFloat(arr1[ct+1]);
    arr1.splice(ct-1,3);
    arr1.splice(ct-1,0,ct1);
    solve(); 
@@ -73,7 +73,7 @@ else{
 
    else if (arr1.includes('-')){
    var ct=arr1.indexOf('-');
-   var ct1=parseInt(arr1[ct-1])-parseInt(arr1[ct+1]);
+   var ct1=parseFloat(arr1[ct-1])-parseFloat(arr1[ct+1]);
    arr1.splice(ct-1,3);
    arr1.splice(ct-1,0,ct1);
    solve();
