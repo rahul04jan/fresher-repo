@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="to_doModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Status_table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Todo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Created_At" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Todo_Status">
+    <End Role="Status_table" Type="Self.Status_table" Multiplicity="0..1" />
+    <End Role="Todo" Type="Self.Todo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Todo">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="to_doModelStoreContainer">
+    <EntitySet Name="Status_table" EntityType="Self.Status_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Todo" EntityType="Self.Todo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Todo_Status" Association="Self.FK_Todo_Status">
+      <End Role="Status_table" EntitySet="Status_table" />
+      <End Role="Todo" EntitySet="Todo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="to_doModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Status_table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Todoes" Relationship="Self.FK_Todo_Status" FromRole="Status_table" ToRole="Todo" />
+  </EntityType>
+  <EntityType Name="Todo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Created_At" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Status_table" Relationship="Self.FK_Todo_Status" FromRole="Todo" ToRole="Status_table" />
+  </EntityType>
+  <Association Name="FK_Todo_Status">
+    <End Role="Status_table" Type="Self.Status_table" Multiplicity="0..1" />
+    <End Role="Todo" Type="Self.Todo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Todo">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="to_doEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Status_table" EntityType="Self.Status_table" />
+    <EntitySet Name="Todoes" EntityType="Self.Todo" />
+    <AssociationSet Name="FK_Todo_Status" Association="Self.FK_Todo_Status">
+      <End Role="Status_table" EntitySet="Status_table" />
+      <End Role="Todo" EntitySet="Todoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
