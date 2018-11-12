@@ -1,13 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
+html{
+	height: 100%;
+}
 body{
-background-image: url("background-image.jpg");
+background-image: url("background-image.jpeg");
 width: auto;
-background-size:100%;
-background-position: center;
+opacity: .9;
 height: 100%;
 padding: 20% 0;
 position: relative;
 top: 0;
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+overflow-y:hidden !important;
+
+}
+.container{
+	opacity: .9px;
+	
 }
 .text-box{
 width: 80%;
@@ -35,14 +46,15 @@ width: 100%;
 }
 .main{
  margin:0 auto;
- width: 90%;
+ width: 100%;
 }
 .todo input{
+	position: relative;
 display: inline;
 width:75%;
 height:40px;
 border:0;
-
+padding: 14px;
 transition: all 0.5s ease;
 }
 .todo input::placeholder{
@@ -55,11 +67,15 @@ border-bottom:2px solid black;
 .todo button p{
 	margin:0;
 	color: black;
+	font-size: 21px;
+    padding: 13px;
 }
 .todo button{
+
 display: inline;
+height: 100%;
 width: 20%;
-padding:1.2% 0;
+padding:0.7% 0;
 background:#d5d5d5d9;
 border: 0;
 margin-left: -5px;
@@ -91,7 +107,9 @@ height: 100%;
 }
 .result-box{
 width: 80%;
-margin: 0 auto; 	
+margin: 0 auto; 
+overflow-y:auto;
+	height:300px;	
 }
 #result{
 list-style: none;
@@ -119,7 +137,7 @@ transition: all 1s ease;
 font-family: 'Rajdhani', sans-serif;
 }
 #result li:hover{
-background: #ddd;
+background: #5D5D5D;
 cursor: pointer;
 }
 .checked{
