@@ -13,11 +13,27 @@
 	<div class="container">
 	<div class="text-box">
         <h2>My To Do List</h2>
+        <div id="div_filter">
+		<span id="fltr1">
+        Filter Task<select id="select_id" >
+  <option value="0" selected >All Tasks</option>
+  
+		</select>
+		</span>
+		<span id="fltr2">
+		Task Type  <select id="select_type">
+  <option value="select_type"  selected>Select Type</option>
+  
+		</select>
+		</span>
+		</div>
+       
         <div class="main">
 		<div class="todo">
 			<input type="text" id="text"/ placeholder="Enter Your Task...">
 			<button id="mybtn" onclick="add()"><p>Add Task</p></button>
 		</div>
+
 	</div>
 	</div>
  <div class="result-box">   

@@ -199,3 +199,15 @@ cursor:pointer;
 	border-radius: 10px;
  }
 
+
+#fltr1{
+	    font-size: 17px;
+	    color: white;
+}
+#fltr2{
+	width: 26px;
+    padding: 61%;
+    font-size: 17px;
+    margin: 5px;
+    color: white
+}
