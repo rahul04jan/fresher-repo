@@ -1,0 +1,26 @@
+.bs-example{
+   margin: 10% 6%;
+   text-align: center;
+}
+/* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+.form-horizontal .control-label{
+    padding-top: 7px;
+
+}
+.form-horizontal{
+   padding: 10px;
+   border: black 6px solid;
+}
+.form-control {
+   width: 60%;
+}    
+.table{
+   border: black 6px solid;
+}	
+#btn-register{
+    float: right;
+    margin: 0.1%;
+}
+th{
+    text-align: center;
+}
