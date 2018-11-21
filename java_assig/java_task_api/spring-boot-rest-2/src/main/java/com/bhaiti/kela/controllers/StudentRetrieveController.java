@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,4 +40,30 @@ public class StudentRetrieveController {
 		    return stdlist;
  // return StudentRegistration.getInstance().getStudentRecords();
   } 
+	 
+	 @CrossOrigin(origins = "http://localhost:8080")
+	  @RequestMapping(method = RequestMethod.GET, value="/student/getOneStudent/{id}")
+	  @ResponseBody
+	  public Object getOneStudents(@PathVariable("id") String id) {
+			//JSON parser object to parse read file
+			    JSONParser jsonParser = new JSONParser();
+			    JSONArray stdlist;
+			    Object obj1;
+			    try (FileReader reader = new FileReader("C:/xampp/htdocs/java_task_api/students.json"))
+			    {
+			        //Read JSON file
+			        Object obj = jsonParser.parse(reader);
+
+			         stdlist = (JSONArray) obj;
+			         obj1= stdlist.get(Integer.parseInt(id));
+			        System.out.println(stdlist);
+			         }
+			    catch (Exception e) {
+			        e.printStackTrace();
+			        obj1=new Student();
+			        stdlist=new JSONArray();
+			    } 
+			    return obj1;
+	 // return StudentRegistration.getInstance().getStudentRecords();
+	  } 
 }

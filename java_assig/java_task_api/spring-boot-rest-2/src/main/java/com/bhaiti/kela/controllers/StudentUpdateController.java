@@ -6,22 +6,25 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.bhaiti.kela.beans.Student;
 import com.bhaiti.kela.beans.StudentRegistration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 @Controller
-public class StudentDeleteController {
-@RequestMapping(method = RequestMethod.DELETE, value="/delete/student/{regdNum}")
+public class StudentUpdateController {@RequestMapping(method = RequestMethod.PUT, value="/update/student/{regdNum}",produces = {"application/json", "application/xml"}
+,  consumes = {"application/x-www-form-urlencoded"})
 @ResponseBody
 @CrossOrigin(origins = "http://localhost:8080")
-public JSONArray deleteStudentRecord(@PathVariable("regdNum") String regdNum) {
+public JSONArray UpdateStudentRecord(@PathVariable("regdNum") String regdNum,Student student) {
 	 JSONArray stdlist = null;
 	 try
     	{
@@ -48,6 +51,11 @@ public JSONArray deleteStudentRecord(@PathVariable("regdNum") String regdNum) {
   	 
   	
     stdlist.remove(Integer.parseInt(regdNum));
+    JSONObject json = new JSONObject();
+    json.put("name", student.getName());
+    json.put("age", student.getAge());
+    json.put("registrationNumber", student.getRegistrationNumber());
+    stdlist.add((Integer.parseInt(regdNum)),json);
       fw.write(stdlist.toJSONString());    
   	fw.close();  	
   	} 
