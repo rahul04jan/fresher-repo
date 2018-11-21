@@ -4,8 +4,9 @@ var input;
 var ids=0;
 var edit_flag=0;
 var mid=0,mid1=0;
+var li_status;
  var edt_date;
-    var edt_typeid;
+    var edt_typeid,gt_status,gt_dsc,gt_status1;
 function f1(){
   input = document.getElementById("text");
 input.addEventListener("keyup", function(event) {
@@ -14,6 +15,7 @@ input.addEventListener("keyup", function(event) {
         document.getElementById("mybtn").click();
     }
 }); 
+
 }
 
 function add () {
@@ -228,40 +230,25 @@ mid=0;
           dataType:"json",
           crossDomain:true,
           success: function(response) {
-          edt_date=response["Created_At"];
-          console.log("Created_At"+edt_date);
-          edt_typeid=response["Type_Id"];
+                edt_date=response["Created_At"];
+                console.log("Created_At"+edt_date);
+                 edt_typeid=response["Type_Id"];
+                 gt_status1=response["Status"];
 
-          console.log(response["Type_Id"]);
-
-
-
-
-
-
-if (edt_typeid==1){
-           document.getElementById("select_type").selectedIndex="1";
-          
-
+                 console.log(response["Type_Id"]);
+                 if (edt_typeid==1){
+                    document.getElementById("select_type").selectedIndex="1";
+                  }
+                else if (edt_typeid==2){
+                      document.getElementById("select_type").selectedIndex="2";
+                 }
+                 else{
+                     document.getElementById("select_type").selectedIndex="0";
+                  }
+        }
+        });
            
-         }
-          else if (edt_typeid==2){
-           document.getElementById("select_type").selectedIndex="2";
-          
-          
-         }
-         else{
-          
-         document.getElementById("select_type").selectedIndex="0";
-           
-         }
 
-
-
-
-
-            }
-            });
 
            console.log("Type_Idarun"+ edt_typeid);
 
@@ -312,7 +299,7 @@ if (edt_typeid==1){
   function display(){
     f1();
     
-            $.ajax({
+                $.ajax({
           type: "GET",
           url: 'http://localhost:56830/api/Todoes',
           async:true, 
@@ -323,8 +310,9 @@ if (edt_typeid==1){
               var cand=response[x]["Description"];
               var idd=response[x]["Id"];
               mid= response[x]["Id"];
+              var stat=response[x]["Status"];
               ++mid;
-              cret(idd,cand);
+              cret(idd,cand,stat);
             }
             }
             });
@@ -366,17 +354,20 @@ if (edt_typeid==1){
 
 
 
-
+    change_status_dis();
         }
   
-  function cret(id,cand){
+  function cret(id,cand,stat=1){
+li_status=stat;
+    console.log("arun");
+    //console.log(li_status);
     var ul = document.getElementById("result");
     var candidate=cand;
     
     var li_id="li"+id;
     var li = document.createElement("li");
     li.setAttribute('id',li_id);
-li.setAttribute('class',"a");
+   
 li.appendChild(document.createTextNode(candidate));
 var myNodelist = document.getElementsByTagName("LI");
 var i;
@@ -402,14 +393,20 @@ var span1=document.createElement("SPAN");
  span1.appendChild(del);
  li.appendChild(span);
  li.appendChild(span1);
+
  
  ul.appendChild(li);
  console.log("del_id="+id);
+ li.setAttribute('onclick',"change_status("+id+")");
  del.setAttribute('onclick',"delete1("+id+")");
 
  edit.setAttribute('onclick',"edit("+id+")");
 
  j=m=n=id;
+  if (li_status==2){
+      li.setAttribute("class","checked");
+    }
+   
 }
 
 
@@ -463,3 +460,53 @@ var optid=document.getElementById("select_id").value;
             }
             });
             }
+function change_status_dis(){
+  var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+    
+  }
+}, false);
+}
+function change_status(idl){
+  var ts = new Date();
+  console.log("lidelete"+idl);
+   $.ajax({
+          type: "GET",
+          url: 'http://localhost:56830/api/Todoes/'+idl,
+          async:true, 
+          dataType:"json",
+          crossDomain:true,
+          success: function(response) {
+                
+                li_status=response["Status"];
+                
+                console.log(idl);
+                var li_dsc=response["Description"];
+                 var li_tp=response["Type_Id"];
+                if (li_status==1){
+                  li_status=2;
+                }
+               else if (li_status==2){
+                  li_status=1;
+                }
+             $.ajax({
+                    type: "PUT",
+                    url: 'http://localhost:56830/api/Todoes/'+idl,
+                    async:true, 
+                    dataType:"json",
+                    data:{"Id":idl,"Description":li_dsc,"Status":li_status,"Created_At":ts.toISOString(),"Type_Id":li_tp},
+                    crossDomain:true,
+                    success: function(response) {
+                      console.log("put response"+response);
+                    },
+                    error: function(err) {
+                      console.log("inside error");
+                      console.log(err);
+                    }
+                  });
+                
+        }
+        });
+}
